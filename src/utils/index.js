@@ -21,3 +21,5 @@ export const API_URLS = {
   userInfo: (userId) => `${API_ROOT}/users/${userId}`,
   searchUsers: (searchText) => `${API_ROOT}/users/search?text=${searchText}`,
 };
+
+export const LOCAL_STORAGE_TOEKN_KEY='__codial_tokens__';
