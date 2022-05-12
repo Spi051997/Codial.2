@@ -1,22 +1,31 @@
-import * as React from 'react'
-import '../App.css';
-import {Link,Route,Routes} from 'react-router-dom'
-import  Nav from './Nav'
-// import Home from './Home';
-// import Post from './Post';
-import {Home,Post} from './';
+import {useEffect} from "react";
+import "../App.css";
+import { Link, Route, Routes } from "react-router-dom";
+import Nav from "./Nav";
+import {getPost} from '../api/index'
+
+import { Home, Post } from "./";
 
 function App() {
+  useEffect(()=>
+  {
+    const fetchPosts=async()=>
+    {
+      const response=await getPost();
+      console.log(response)
+    }
+      fetchPosts();
+
+  },[]);
   return (
     <div className="App">
-      {/* <h1>Welcome  to Route Test</h1> */}
-<Nav />
-      <Routes>
+      <Nav />
+
+      {/* <Routes>
        <Route    path='/' element={<Home/>}   />
        <Route  path='/Post' element={<Post />}  />
 
-      </Routes>
-     
+      </Routes> */}
     </div>
   );
 }
